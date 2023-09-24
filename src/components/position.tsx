@@ -8,9 +8,8 @@ import Typography from '@mui/material/Typography';
 import CircleIcon from '@mui/icons-material/Circle';
 import TimelineItem from '@mui/lab/TimelineItem';
 import TimelineSeparator from '@mui/lab/TimelineSeparator';
-import TimelineConnector from '@mui/lab/TimelineConnector';
 import TimelineContent from '@mui/lab/TimelineContent';
-import TimelineDot from '@mui/lab/TimelineDot';
+import { TimelineDot, TimelineConnector } from './timeline';
 
 export interface PositionData {
   title?: string;
@@ -26,7 +25,6 @@ interface PositionProps extends Omit<PositionData, 'logoSrc'> {
   logoSrc?: string;
   children?: ReactNode;
   component?: ElementType;
-  nested?: boolean;
 }
 
 export const Position = ({
@@ -37,7 +35,6 @@ export const Position = ({
   description,
   details = [],
   jobs = [],
-  nested = false,
   children,
 }: PositionProps) => {
   return (
@@ -45,14 +42,7 @@ export const Position = ({
       {title && (
         <TimelineItem className='border-left-solid'>
           <TimelineSeparator>
-            <TimelineDot
-              sx={{
-                backgroundColor: 'transparent',
-                boxShadow: 'none',
-                color: 'grey.400',
-                border: 'none',
-              }}
-            >
+            <TimelineDot>
               {logoSrc ? (
                 <Image
                   className='rounded-xl'
@@ -63,37 +53,34 @@ export const Position = ({
                   priority
                 />
               ) : (
-                <Box
-                  sx={{
-                    width: 48,
-                    display: 'flex',
-                    justifyContent: 'center',
-                  }}
-                >
-                  <CircleIcon sx={{ height: 12 }} />
-                </Box>
+                <CircleIcon
+                  sx={{ height: 12, width: 48, color: 'text.secondary' }}
+                />
               )}
             </TimelineDot>
             <TimelineConnector />
           </TimelineSeparator>
-          <TimelineContent component={'div'} sx={{ pt: '11.5px' }}>
-            <Box sx={{ display: 'flex', gap: 3, alignItems: 'center', pb: 2 }}>
-              <Box>
-                {title && (
-                  <Typography
-                    sx={{ pt: 0, lineHeight: 1.35, fontWeight: 'bold' }}
-                    variant={nested ? 'body1' : 'h6'}
-                  >
-                    {title}
-                  </Typography>
-                )}
-                <Typography variant={'body2'}>
-                  {company}
-                  {company && time && ' '}
-                  <Box component='span' sx={{ color: 'secondary' }}>
-                    {time}
-                  </Box>
+          <TimelineContent
+            component={'section'}
+            sx={[{ pr: 0 }, logoSrc ? { pt: 1 } : { pt: 0 }]}
+          >
+            <Box sx={{ pb: 2 }}>
+              {title && (
+                <Typography
+                  sx={{
+                    pt: 0,
+                    lineHeight: 1.3,
+                    fontWeight: '700',
+                  }}
+                  component={'h4'}
+                  variant={'h6'}
+                >
+                  {title}
                 </Typography>
+              )}
+              <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                <Typography variant={'body2'}>{company}</Typography>
+                <Typography variant={'body2'}>{time}</Typography>
               </Box>
             </Box>
             {description && (
@@ -101,11 +88,11 @@ export const Position = ({
                 {description}
               </Typography>
             )}
-            <ul>
+            <Box component={'ul'} sx={{ pl: 2 }}>
               {details.map((detail, i) => {
                 return <li key={i}>{detail}</li>;
               })}
-            </ul>
+            </Box>
 
             {children}
           </TimelineContent>
@@ -113,7 +100,7 @@ export const Position = ({
       )}
 
       {jobs.map((job, i) => {
-        return <Position {...job} nested={true} key={i} component={'li'} />;
+        return <Position {...job} key={i} component={'li'} />;
       })}
     </>
   );

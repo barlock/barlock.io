@@ -78,9 +78,9 @@ export const resume: PositionData[] = [
   {
     jobs: [
       {
-        company: 'IBM',
+        company: 'IBM Whitewater',
         logoSrc: '/ibm.jpeg',
-        title: 'Senior Software Engineering Lead, IBM Whitewater',
+        title: 'Senior Software Engineering Lead',
         time: 'Aug 2015 - Feb 2018',
         description:
           'Led a cross-site, multi-disciplinary team of engineers and designers in the goal of fostering better continuous delivery, collaboration, and cloud-based expertise across the company. By introducing, and making safe, best-of-breed tools like Slack, GitHub, and TravisCI we changed the landscape of engineering at IBM.',
@@ -96,7 +96,8 @@ export const resume: PositionData[] = [
         ],
       },
       {
-        title: 'Senior Software Engineer, IBM Storefront',
+        company: 'IBM Storefront',
+        title: 'Senior Software Engineer',
         time: 'Feb 2015 - Aug 2015',
         description:
           "Senior Software engineer for IBM's Digital Storefront https://www.ibm.com/marketplace.",
@@ -108,7 +109,8 @@ export const resume: PositionData[] = [
         ],
       },
       {
-        title: 'Software Engineer, IBM Service Engage',
+        company: 'IBM Service Engage',
+        title: 'Software Engineer',
         time: 'Jul 2013 - Feb 2015',
         description: 'Product developer for IBM Service Engage.',
         details: [

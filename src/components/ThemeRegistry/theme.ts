@@ -1,6 +1,6 @@
 import type {} from '@mui/lab/themeAugmentation';
 
-import { Manrope, JetBrains_Mono } from 'next/font/google';
+import { Quicksand, JetBrains_Mono } from 'next/font/google';
 import { createTheme } from '@mui/material/styles';
 
 declare module '@mui/material/styles' {
@@ -13,16 +13,38 @@ declare module '@mui/material/styles' {
   }
 }
 
-const sansSerif = Manrope({
+const sansSerif = Quicksand({
   subsets: ['latin'],
-  // display: 'swap',
 });
 
 const mono = JetBrains_Mono({
-  weight: ['300'],
+  weight: ['400'],
   subsets: ['latin'],
-  display: 'auto',
 });
+
+const grey = {
+  900: '#1a1c1e',
+  800: '#2f3033',
+  700: '#46474a',
+  600: '#5d5e62',
+  500: '#76777a',
+  400: '#909094',
+  300: '#ababae',
+  200: '#c7c6ca',
+  100: '#e3e2e6',
+};
+
+const primary = {
+  contrastText: '#f8fdff',
+  light: '#1f4b82',
+  main: '#0e223b',
+};
+
+const text = {
+  primary: grey[900],
+  secondary: primary.main,
+  disabled: grey[400],
+};
 
 const theme = createTheme({
   palette: {
@@ -31,27 +53,26 @@ const theme = createTheme({
       default: '#fff',
       paper: '#d6e3ff',
     },
-    primary: {
-      contrastText: '#f8fdff',
-      light: '#d6e3ff',
-      main: '#295ea7',
-      dark: '#001b3d',
+    primary,
+    secondary: {
+      contrastText: '#181c22',
+      main: '#ddb15f',
     },
-    grey: {
-      900: '#181c22',
-      800: '#2d3038',
-      700: '#44474e',
-      600: '#5b5e66',
-      500: '#74777f',
-      400: '#8e9099',
-      300: '#a8abb4',
-      200: '#c4c6cf',
-      100: '#e0e2ec',
-    },
+    text,
+    grey,
   },
   typography: {
     fontFamily: sansSerif.style.fontFamily,
     fontFamilyMono: mono.style.fontFamily,
+    h3: {
+      fontWeight: 600,
+      color: text.secondary,
+    },
+    body2: {
+      fontSize: '1rem',
+      fontWeight: 700,
+      color: primary.light,
+    },
   },
 });
 
