@@ -32,13 +32,27 @@ export default function HomePage() {
       container
       component={Container}
       sx={[
-        { p: 0 },
+        {
+          p: 0,
+          mx: 'auto',
+        },
+        breakpoint('sm', {
+          mx: 0,
+          px: 2,
+        }),
         breakpoint('lg', {
-          ml: 4,
+          pl: 4,
         }),
       ]}
     >
-      <Aside sx={{ pr: 4, flexDirection: 'column', justifyContent: 'center' }}>
+      <Aside
+        sx={[
+          { flexDirection: 'column', justifyContent: 'center', pr: 2 },
+          breakpoint('md', {
+            px: 0,
+          }),
+        ]}
+      >
         <HexClip size={avatarSize} sx={{ alignSelf: 'center', mt: 4 }}>
           <Image
             className='rounded-full'

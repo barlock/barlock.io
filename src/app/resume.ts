@@ -55,10 +55,10 @@ export const resume: PositionData[] = [
     details: [
       'Lead open source communities around novel blockchain use cases, frameworks, and proof of concepts',
       'Guided team agile practices including planning and estimating via ZenHub, scrum, and retrospectives',
-      'Continuously delivered multiple projects through a narrative, user-focused, design-oriented approach https://medium.com/web3studio',
+      'Continuously delivered multiple projects through a narrative, user-focused, design-oriented approach',
       'Used dev-ops engineering practices and TDD to continuously deploy services to production on AWS',
-      'Created a dev-ops platform to deploy tamper-resistant, scalable, and DDOS protected distributed static websites https://github.com/ConsenSys/web3studio-soy',
-      'Built a scalable, economic primitive with the initial use of bringing a recurring revenue stream to artists through a normally frowned upon practice of "bootlegging" https://github.com/ConsenSys/web3studio-bootleg',
+      'Created a dev-ops platform to deploy tamper-resistant, scalable, and DDOS protected distributed static websites',
+      'Built a scalable, economic primitive with the initial use of bringing a recurring revenue stream to artists through a normally frowned upon practice of "bootlegging"',
       'Created a mobile application to show a new cryptographic approach to sharding content onto IPFS',
     ],
   },

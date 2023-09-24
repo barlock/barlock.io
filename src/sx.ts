@@ -26,7 +26,7 @@ export const spreadable = (
 > => (Array.isArray(sx) ? sx : [sx]);
 
 export const breakpoint =
-  (breakpoint: Breakpoint, styles: SxProps<Theme>) =>
+  (breakpoint: Breakpoint, styles: SxProps) =>
   ({ breakpoints }: Theme) => ({
     [breakpoints.up(breakpoint)]: styles,
   });
