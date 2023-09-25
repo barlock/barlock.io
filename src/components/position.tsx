@@ -16,8 +16,8 @@ export interface PositionData {
   time?: string;
   company?: string;
   logoSrc?: string;
-  description?: string;
-  details?: string[];
+  description?: ReactNode;
+  details?: ReactNode[];
   jobs?: Array<Omit<PositionData, 'jobs'>>;
 }
 
@@ -40,7 +40,12 @@ export const Position = ({
   return (
     <>
       {title && (
-        <TimelineItem className='border-left-solid'>
+        <TimelineItem
+          className='border-left-solid'
+          sx={{
+            printBreakAfter: 'always',
+          }}
+        >
           <TimelineSeparator>
             <TimelineDot>
               {logoSrc ? (
@@ -54,16 +59,13 @@ export const Position = ({
                 />
               ) : (
                 <CircleIcon
-                  sx={{ height: 12, width: 48, color: 'text.secondary' }}
+                  sx={{ height: 12, width: 48, my: 1, color: 'text.secondary' }}
                 />
               )}
             </TimelineDot>
             <TimelineConnector />
           </TimelineSeparator>
-          <TimelineContent
-            component={'section'}
-            sx={[{ pr: 0 }, logoSrc ? { pt: 1 } : { pt: 0 }]}
-          >
+          <TimelineContent component={'section'} sx={{ pr: 0, pt: 1 }}>
             <Box sx={{ pb: 2 }}>
               {title && (
                 <Typography

@@ -92,7 +92,7 @@ export default function HomePage() {
       <Aside>
         <Section title='About Me'>
           <IndentSectionText>
-            I&rsquo;m a design curious, full-stack software engineer. I build
+            I’m a design curious, full-stack software engineer. I build
             high-quality, performant, secure, and maintainable cloud-native
             applications that delight users across industries.
             <br />
@@ -100,8 +100,8 @@ export default function HomePage() {
             platform for AI apps to blockchain to managing physical and virtual
             smart studios for film and television.
             <br />
-            <br />I love mentoring and teaching others, barbeque, and ringing
-            chords with my barbershop quartet.
+            <br />I love mentoring and teaching others, barbeque, home
+            automation, and ringing chords with my barbershop quartet.
           </IndentSectionText>
         </Section>
         <Section title={'Education'}>
@@ -122,6 +122,9 @@ export default function HomePage() {
               'Node.js',
               'Javascript',
               'React',
+              'Agile',
+              'DevOps',
+              'MLOps',
               'Kubernetes',
               'Docker',
               'GraphQL',
