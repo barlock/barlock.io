@@ -6,7 +6,7 @@ import * as React from 'react';
 
 interface LayoutProps {
   sx?: SxProps<Theme>;
-  children: ReactNode;
+  children?: ReactNode;
 }
 
 export const Aside = ({ sx, children }: LayoutProps) => {

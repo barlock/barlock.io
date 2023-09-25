@@ -99,11 +99,12 @@ interface SectionProps {
   title: string;
   children: ReactNode;
   sx?: SxProps;
+  rootSx?: SxProps;
 }
 
-export const Section = ({ title, sx, children }: SectionProps) => {
+export const Section = ({ title, rootSx, sx, children }: SectionProps) => {
   return (
-    <>
+    <Box sx={rootSx}>
       <SectionTitle>{title}</SectionTitle>
       <Box
         sx={[
@@ -116,6 +117,6 @@ export const Section = ({ title, sx, children }: SectionProps) => {
       >
         {children}
       </Box>
-    </>
+    </Box>
   );
 };

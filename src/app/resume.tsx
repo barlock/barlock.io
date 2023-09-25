@@ -56,9 +56,9 @@ export const resume: PositionData[] = [
         time: 'Jan 2020 - Oct 2021',
         description: (
           <>
-            Productized AI models from IBM Research designed to detect software
-            log anomalies. Designed and built a “Chat Opts” interface using
-            Slack to alert users and allow them to take action.
+            Productized AI models designed to detect software log anomalies from
+            IBM Research. Designed and built a “Chat Opts” interface using Slack
+            to alert users and allow them to take action.
           </>
         ),
         details: [
@@ -101,7 +101,7 @@ export const resume: PositionData[] = [
         time: 'Jul 2019 - Jun 2022',
         description: (
           <>
-            Throughout my tenure at IBM, I championed{' '}
+            Championed{' '}
             <Link
               href={'https://resources.github.com/innersource/fundamentals/'}
             >
@@ -131,8 +131,8 @@ export const resume: PositionData[] = [
     description: (
       <>
         Built <Link href={'https://medium.com/web3studio'}>Web3Studio</Link> to
-        conceive of and build things that inspire and enable developers to build
-        novel, unexpected, and innovative things that excite and activate the
+        conceive and build things that inspire and enable developers to build
+        novel, unexpected, and innovative products that excite and activate the
         community to expand blockchain’s boundaries.
       </>
     ),
@@ -187,7 +187,7 @@ export const resume: PositionData[] = [
           'Led a multi-disciplinary team in Agile and continuous integration and delivery',
           'Practiced resilience engineering to ensure tool uptime and reduce reduce alert-fatigue',
           'Led internal and cross-company learning reviews (post-mortems)',
-          'Worked with global FED@IBM community to spread modern practices through a multi-day conference like talks and a hackathon',
+          'Spread modern practices with multi-day conference like talks and hackathons',
           'Taught “Developer Days”, a new-hire bootcamp for testing, Agile, and Design Thinking',
           'Developed Slack bots automate internal processes',
         ],

@@ -25,13 +25,14 @@ import { Timeline } from '../components/timeline';
 import * as React from 'react';
 import { Article, Aside } from '../components/resume';
 import { ChipLink } from '../components/chip-link';
-import { Smartphone, Email, Computer } from '@mui/icons-material';
+import { Smartphone, Email, Computer, PictureAsPdf } from '@mui/icons-material';
 
 const avatarSize = 200;
 
 // Set this at build time to render contact section
 const email = process.env.NEXT_PUBLIC_EMAIL;
 const phone = process.env.NEXT_PUBLIC_PHONE;
+const hasContact = email && phone;
 
 export default function HomePage() {
   return (
@@ -100,6 +101,16 @@ export default function HomePage() {
             icon={<LinkedInIcon />}
             label={'/in/barlock'}
           />
+          <ChipLink
+            sx={{
+              ['@media print']: {
+                display: 'none',
+              },
+            }}
+            href={'/resume.pdf'}
+            icon={<PictureAsPdf />}
+            label={'Download PDF'}
+          />
         </Box>
       </Article>
 
@@ -110,44 +121,56 @@ export default function HomePage() {
           },
         }}
       >
-        {email && phone && (
-          <Section
-            title={'Contact'}
-            sx={{ gap: 3, display: 'flex', flexDirection: 'column' }}
-          >
-            <Box sx={{ position: 'relative' }}>
-              <SectionContact icon={<Computer />} title={'Website'}>
-                https://barlock.io
-              </SectionContact>
-              <Box
-                sx={{
-                  position: 'absolute',
-                  top: 0,
-                  right: 0,
-                  width: '30%',
-                  maxWidth: 100,
-                }}
-              >
-                <QRCode
-                  size={256}
-                  level={'L'}
-                  bgColor={'transparent'}
-                  fgColor={'currentColor'}
-                  style={{ height: 'auto', maxWidth: '100%', width: '100%' }}
-                  viewBox={`0 0 256 256`}
-                  value={'https://barlock.io'}
-                />
-              </Box>
+        <Section
+          title={'Contact'}
+          rootSx={{
+            display: hasContact ? 'block' : 'none',
+            ['@media print']: {
+              display: 'block',
+            },
+          }}
+          sx={{
+            gap: 3,
+            flexDirection: 'column',
+            display: 'flex',
+          }}
+        >
+          <Box sx={{ position: 'relative' }}>
+            <SectionContact icon={<Computer />} title={'Website'}>
+              https://barlock.io
+            </SectionContact>
+            <Box
+              sx={{
+                position: 'absolute',
+                top: 0,
+                right: 0,
+                width: '25%',
+                maxWidth: 100,
+              }}
+            >
+              <QRCode
+                size={256}
+                level={'L'}
+                bgColor={'transparent'}
+                fgColor={'currentColor'}
+                style={{ height: 'auto', maxWidth: '100%', width: '100%' }}
+                viewBox={`0 0 256 256`}
+                value={'https://barlock.io'}
+              />
             </Box>
-            <SectionContact icon={<Smartphone />} title={'Phone'}>
-              {phone}
-            </SectionContact>
+          </Box>
+          {hasContact && (
+            <>
+              <SectionContact icon={<Smartphone />} title={'Phone'}>
+                {phone}
+              </SectionContact>
 
-            <SectionContact icon={<Email />} title={'Email'}>
-              {email}
-            </SectionContact>
-          </Section>
-        )}
+              <SectionContact icon={<Email />} title={'Email'}>
+                {email}
+              </SectionContact>
+            </>
+          )}
+        </Section>
 
         <Section title='About Me'>
           <IndentSectionText>
@@ -156,8 +179,8 @@ export default function HomePage() {
             applications that delight users across industries.
             <br />
             <br />I use continuous delivery to create everything from a cloud
-            platform for AI apps to blockchain to managing physical and virtual
-            smart studios for film and television.
+            platform for AI apps, to blockchain, to managing physical and
+            virtual smart studios for film and television.
             <br />
             <br />I love mentoring and teaching others, barbeque, home
             automation, and ringing chords with my barbershop quartet.

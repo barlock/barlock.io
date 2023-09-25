@@ -1,5 +1,5 @@
 @media print {
     @page {
-        margin: 0 1cm;
+        margin: 0 .25in;
     }
 }
