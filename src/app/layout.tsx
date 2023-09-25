@@ -2,9 +2,10 @@ import { ReactNode } from 'react';
 
 import Box from '@mui/material/Box';
 import ThemeRegistry from '@/components/ThemeRegistry/ThemeRegistry';
+import './print.css';
 
 export const metadata = {
-  title: 'Michael Barlock',
+  title: 'Michael Barlock - Resume',
   description: 'Resume for Michael Barlock',
 };
 

@@ -12,19 +12,26 @@ import { resume } from './resume';
 import {
   IndentSectionText,
   Section,
+  SectionContact,
   SectionText,
   SectionTitle,
 } from '../components/section-title';
 import { HexClip } from '../components/hex-clip';
 import Grid from '@mui/material/Unstable_Grid2';
+import QRCode from 'react-qr-code';
 import { SkillList } from '../components/skill-list';
 import { breakpoint } from '../sx';
 import { Timeline } from '../components/timeline';
 import * as React from 'react';
 import { Article, Aside } from '../components/resume';
 import { ChipLink } from '../components/chip-link';
+import { Smartphone, Email, Computer } from '@mui/icons-material';
 
 const avatarSize = 200;
+
+// Set this at build time to render contact section
+const email = process.env.NEXT_PUBLIC_EMAIL;
+const phone = process.env.NEXT_PUBLIC_PHONE;
 
 export default function HomePage() {
   return (
@@ -47,7 +54,11 @@ export default function HomePage() {
     >
       <Aside
         sx={[
-          { flexDirection: 'column', justifyContent: 'center', pr: 2 },
+          {
+            flexDirection: 'column',
+            justifyContent: 'center',
+            pr: 2,
+          },
           breakpoint('md', {
             px: 0,
           }),
@@ -69,6 +80,9 @@ export default function HomePage() {
           pt: 4,
           flexDirection: 'column',
           justifyContent: 'center',
+          ['@media print']: {
+            pt: 8,
+          },
         }}
       >
         <Typography variant='h3' component={'h1'}>
@@ -89,7 +103,52 @@ export default function HomePage() {
         </Box>
       </Article>
 
-      <Aside>
+      <Aside
+        sx={{
+          ['@media print']: {
+            height: '200vh',
+          },
+        }}
+      >
+        {email && phone && (
+          <Section
+            title={'Contact'}
+            sx={{ gap: 3, display: 'flex', flexDirection: 'column' }}
+          >
+            <Box sx={{ position: 'relative' }}>
+              <SectionContact icon={<Computer />} title={'Website'}>
+                https://barlock.io
+              </SectionContact>
+              <Box
+                sx={{
+                  position: 'absolute',
+                  top: 0,
+                  right: 0,
+                  width: '30%',
+                  maxWidth: 100,
+                }}
+              >
+                <QRCode
+                  size={256}
+                  level={'L'}
+                  bgColor={'transparent'}
+                  fgColor={'currentColor'}
+                  style={{ height: 'auto', maxWidth: '100%', width: '100%' }}
+                  viewBox={`0 0 256 256`}
+                  value={'https://barlock.io'}
+                />
+              </Box>
+            </Box>
+            <SectionContact icon={<Smartphone />} title={'Phone'}>
+              {phone}
+            </SectionContact>
+
+            <SectionContact icon={<Email />} title={'Email'}>
+              {email}
+            </SectionContact>
+          </Section>
+        )}
+
         <Section title='About Me'>
           <IndentSectionText>
             I’m a design curious, full-stack software engineer. I build
@@ -151,7 +210,22 @@ export default function HomePage() {
         <SectionTitle color={'text.secondary'}>Experience</SectionTitle>
         <Timeline>
           {resume.map((position, i) => (
-            <Position {...position} key={i} />
+            <Position
+              {...position}
+              key={i}
+              sx={[
+                {
+                  printBreakBefore: 'always',
+                  printBreakInside: 'never',
+                  mb: 1,
+                },
+                i === 3 && {
+                  ['@media print']: {
+                    pt: 12,
+                  },
+                },
+              ]}
+            />
           ))}
         </Timeline>
       </Article>

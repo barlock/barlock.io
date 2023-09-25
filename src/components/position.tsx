@@ -10,6 +10,7 @@ import TimelineItem from '@mui/lab/TimelineItem';
 import TimelineSeparator from '@mui/lab/TimelineSeparator';
 import TimelineContent from '@mui/lab/TimelineContent';
 import { TimelineDot, TimelineConnector } from './timeline';
+import { SxProps } from '@mui/material/styles';
 
 export interface PositionData {
   title?: string;
@@ -25,6 +26,7 @@ interface PositionProps extends Omit<PositionData, 'logoSrc'> {
   logoSrc?: string;
   children?: ReactNode;
   component?: ElementType;
+  sx?: SxProps;
 }
 
 export const Position = ({
@@ -35,17 +37,13 @@ export const Position = ({
   description,
   details = [],
   jobs = [],
+  sx,
   children,
 }: PositionProps) => {
   return (
-    <>
+    <Box sx={sx}>
       {title && (
-        <TimelineItem
-          className='border-left-solid'
-          sx={{
-            printBreakAfter: 'always',
-          }}
-        >
+        <TimelineItem>
           <TimelineSeparator>
             <TimelineDot>
               {logoSrc ? (
@@ -104,6 +102,6 @@ export const Position = ({
       {jobs.map((job, i) => {
         return <Position {...job} key={i} component={'li'} />;
       })}
-    </>
+    </Box>
   );
 };

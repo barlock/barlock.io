@@ -70,12 +70,38 @@ export const IndentSectionText = ({ sx, children }: SectionTextProps) => {
   );
 };
 
-interface SectionProps {
+interface SectionContactProps {
+  icon: ReactNode;
   title: string;
   children: ReactNode;
 }
 
-export const Section = ({ title, children }: SectionProps) => {
+export const SectionContact = ({
+  icon,
+  title,
+  children,
+}: SectionContactProps) => {
+  return (
+    <Box>
+      <Box sx={{ display: 'flex', gap: 1, pb: 1 }}>
+        {icon}
+        <Typography variant={'body1'} sx={{ fontWeight: 700 }}>
+          {title}
+        </Typography>
+      </Box>
+
+      <IndentSectionText>{children}</IndentSectionText>
+    </Box>
+  );
+};
+
+interface SectionProps {
+  title: string;
+  children: ReactNode;
+  sx?: SxProps;
+}
+
+export const Section = ({ title, sx, children }: SectionProps) => {
   return (
     <>
       <SectionTitle>{title}</SectionTitle>
@@ -85,6 +111,7 @@ export const Section = ({ title, children }: SectionProps) => {
           breakpoint('md', {
             color: 'white',
           }),
+          ...spreadable(sx),
         ]}
       >
         {children}
