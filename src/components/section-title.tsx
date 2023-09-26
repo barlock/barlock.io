@@ -29,7 +29,7 @@ export const SectionTitle = ({ color, children }: SectionTitleProps) => (
       sx={{
         width: '100%',
         position: 'relative',
-        bottom: -4,
+        bottom: -3,
       }}
     >
       {'//'}
