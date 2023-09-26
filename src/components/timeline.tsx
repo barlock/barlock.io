@@ -1,6 +1,6 @@
 import MuiTimeline, { TimelineProps } from '@mui/lab/Timeline';
 import { timelineItemClasses } from '@mui/lab/TimelineItem';
-import { breakpoint, spreadable } from '../sx';
+import { breakpoint, spreadable } from '@/sx';
 import { TimelineConnectorProps, TimelineDotProps } from '@mui/lab';
 import MuiTimelineConnector from '@mui/lab/TimelineConnector';
 import MuiTimelineDot from '@mui/lab/TimelineDot';

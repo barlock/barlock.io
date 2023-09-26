@@ -1,8 +1,8 @@
 import Typography from '@mui/material/Typography';
 import { ReactNode } from 'react';
 import Box from '@mui/material/Box';
-import { SxProps } from '@mui/material';
-import { breakpoint, spreadable } from '../sx';
+import { Link, SxProps } from '@mui/material';
+import { breakpoint, gap, spreadable } from '@/sx';
 import * as React from 'react';
 
 interface SectionTitleProps {
@@ -13,15 +13,14 @@ interface SectionTitleProps {
 export const SectionTitle = ({ color, children }: SectionTitleProps) => (
   <Typography
     component={'h3'}
-    variant={'h4'}
+    variant={'sectionTitle'}
     sx={{
+      mb: gap / 2,
+      pt: gap,
       width: '100%',
-      fontFamily: 'fontFamilyMono',
       borderBottomStyle: 'solid',
       borderBottomWidth: 3,
       borderBottomColor: 'text',
-      mb: 2,
-      pt: 4,
       color: color,
     }}
   >
@@ -30,7 +29,7 @@ export const SectionTitle = ({ color, children }: SectionTitleProps) => (
       sx={{
         width: '100%',
         position: 'relative',
-        bottom: -8,
+        bottom: -4,
       }}
     >
       {'//'}
@@ -73,16 +72,20 @@ export const IndentSectionText = ({ sx, children }: SectionTextProps) => {
 interface SectionContactProps {
   icon: ReactNode;
   title: string;
+  href?: string;
+  sx?: SxProps;
   children: ReactNode;
 }
 
 export const SectionContact = ({
   icon,
   title,
+  href,
+  sx,
   children,
 }: SectionContactProps) => {
   return (
-    <Box>
+    <Box sx={sx}>
       <Box sx={{ display: 'flex', gap: 1, pb: 1 }}>
         {icon}
         <Typography variant={'body1'} sx={{ fontWeight: 700 }}>
@@ -90,7 +93,18 @@ export const SectionContact = ({
         </Typography>
       </Box>
 
-      <IndentSectionText>{children}</IndentSectionText>
+      <IndentSectionText>
+        {href ? (
+          <Link
+            sx={{ color: 'currentColor', textDecorationColor: 'currentColor' }}
+            href={href}
+          >
+            {children}
+          </Link>
+        ) : (
+          children
+        )}
+      </IndentSectionText>
     </Box>
   );
 };
@@ -108,9 +122,9 @@ export const Section = ({ title, rootSx, sx, children }: SectionProps) => {
       <SectionTitle>{title}</SectionTitle>
       <Box
         sx={[
-          { pr: 4 },
+          { pr: gap, color: 'text' },
           breakpoint('md', {
-            color: 'white',
+            color: 'common.white',
           }),
           ...spreadable(sx),
         ]}

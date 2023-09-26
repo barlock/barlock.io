@@ -2,7 +2,7 @@ import { Chip, ChipProps } from '@mui/material';
 import * as React from 'react';
 import { cloneElement, ReactElement } from 'react';
 import { SxProps } from '@mui/material/styles';
-import { spreadable } from '../sx';
+import { breakpoint, spreadable } from '@/sx';
 
 interface ChipLinkProps {
   href: string;
@@ -25,9 +25,12 @@ export const ChipLink = ({ href, icon, label, sx }: ChipLinkProps) => {
           fontSize: '1rem',
           fontWeight: '600',
           borderWidth: 2,
-          borderColor: 'primary.main',
-          color: 'primary.main',
+          borderColor: 'currentColor',
+          color: 'text',
         },
+        breakpoint('md', {
+          color: 'common.white',
+        }),
         ...spreadable(sx),
       ]}
     />

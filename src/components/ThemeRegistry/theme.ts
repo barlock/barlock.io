@@ -2,14 +2,21 @@ import type {} from '@mui/lab/themeAugmentation';
 
 import { Quicksand, JetBrains_Mono } from 'next/font/google';
 import { createTheme } from '@mui/material/styles';
+import { CSSProperties } from 'react';
 
 declare module '@mui/material/styles' {
   interface TypographyVariants {
-    fontFamilyMono: string;
+    sectionTitle: CSSProperties;
   }
 
   interface TypographyVariantsOptions {
-    fontFamilyMono: string;
+    sectionTitle: CSSProperties;
+  }
+}
+
+declare module '@mui/material/Typography' {
+  interface TypographyPropsVariantOverrides {
+    sectionTitle: true;
   }
 }
 
@@ -63,10 +70,31 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: sansSerif.style.fontFamily,
-    fontFamilyMono: mono.style.fontFamily,
-    h3: {
+    h2: {
+      // Position Title
+      fontSize: '3.052rem',
+      fontWeight: 300,
+    },
+    h4: {
+      // Name title
+      fontSize: '2.441rem',
       fontWeight: 600,
-      color: text.secondary,
+    },
+    sectionTitle: {
+      // Section Title
+      fontSize: '1.953rem',
+      fontFamily: mono.style.fontFamily,
+      lineHeight: 1,
+    },
+    h6: {
+      // Position Title
+      fontSize: '1.25rem',
+      fontWeight: 700,
+      lineHeight: 1.3,
+    },
+    body1: {
+      fontSize: '1rem',
+      fontWeight: 500,
     },
     body2: {
       fontSize: '1rem',

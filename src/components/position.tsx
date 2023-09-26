@@ -6,6 +6,7 @@ import Box from '@mui/material/Box';
 import * as React from 'react';
 import Typography from '@mui/material/Typography';
 import CircleIcon from '@mui/icons-material/Circle';
+import CodeIcon from '@mui/icons-material/Code';
 import TimelineItem from '@mui/lab/TimelineItem';
 import TimelineSeparator from '@mui/lab/TimelineSeparator';
 import TimelineContent from '@mui/lab/TimelineContent';
@@ -17,14 +18,13 @@ export interface PositionData {
   time?: string;
   company?: string;
   logoSrc?: string;
+  stack?: ReactNode[];
   description?: ReactNode;
   details?: ReactNode[];
   jobs?: Array<Omit<PositionData, 'jobs'>>;
 }
 
-interface PositionProps extends Omit<PositionData, 'logoSrc'> {
-  logoSrc?: string;
-  children?: ReactNode;
+interface PositionProps extends PositionData {
   component?: ElementType;
   sx?: SxProps;
 }
@@ -38,7 +38,7 @@ export const Position = ({
   details = [],
   jobs = [],
   sx,
-  children,
+  stack,
 }: PositionProps) => {
   return (
     <Box sx={sx}>
@@ -69,8 +69,6 @@ export const Position = ({
                 <Typography
                   sx={{
                     pt: 0,
-                    lineHeight: 1.3,
-                    fontWeight: '700',
                   }}
                   component={'h4'}
                   variant={'h6'}
@@ -88,13 +86,21 @@ export const Position = ({
                 {description}
               </Typography>
             )}
-            <Box component={'ul'} sx={{ pl: 2 }}>
+            <Box component={'ul'} sx={{ pl: 2, listStyle: 'disc' }}>
               {details.map((detail, i) => {
                 return <li key={i}>{detail}</li>;
               })}
             </Box>
 
-            {children}
+            {stack && (
+              <Typography variant={'body1'} sx={{ py: 1 }}>
+                <CodeIcon sx={{ verticalAlign: 'bottom', mr: 0.5 }} />
+                <Typography sx={{ fontWeight: 700 }} component={'span'}>
+                  Stack:
+                </Typography>{' '}
+                {stack.join(' • ')}
+              </Typography>
+            )}
           </TimelineContent>
         </TimelineItem>
       )}

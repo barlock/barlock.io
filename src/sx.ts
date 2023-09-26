@@ -25,6 +25,8 @@ export const spreadable = (
       >)
 > => (Array.isArray(sx) ? sx : [sx]);
 
+export const gap = 4;
+
 export const breakpoint =
   (breakpoint: Breakpoint, styles: SxProps) =>
   ({ breakpoints }: Theme) => ({

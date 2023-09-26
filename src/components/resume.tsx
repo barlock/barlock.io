@@ -1,7 +1,7 @@
 import { SxProps, Theme } from '@mui/material/styles';
 import { ReactNode } from 'react';
 import Grid from '@mui/material/Unstable_Grid2';
-import { breakpoint, spreadable } from '../sx';
+import { breakpoint, gap, spreadable } from '@/sx';
 import * as React from 'react';
 
 interface LayoutProps {
@@ -17,13 +17,13 @@ export const Aside = ({ sx, children }: LayoutProps) => {
       component={'aside'}
       sx={[
         {
-          pl: 2,
+          pl: gap / 2,
           display: 'flex',
           flexDirection: 'column',
           background: 'white',
         },
         breakpoint('md', {
-          pl: 4,
+          pl: gap,
           color: 'secondary.main',
           backgroundColor: 'primary.main',
         }),
@@ -40,12 +40,12 @@ export const Article = ({ sx, children }: LayoutProps) => {
     <Grid
       sx={[
         {
-          pl: 2,
+          pl: gap / 2,
           display: 'flex',
           flexDirection: 'column',
           background: 'white',
         },
-        breakpoint('md', { pl: 4 }),
+        breakpoint('md', { pl: gap, pt: gap }),
         ...spreadable(sx),
       ]}
       xs={12}

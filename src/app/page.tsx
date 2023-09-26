@@ -15,19 +15,18 @@ import {
   SectionContact,
   SectionText,
   SectionTitle,
-} from '../components/section-title';
-import { HexClip } from '../components/hex-clip';
+} from '@/components/section-title';
+import { HexClip } from '@/components/hex-clip';
 import Grid from '@mui/material/Unstable_Grid2';
 import QRCode from 'react-qr-code';
-import { SkillList } from '../components/skill-list';
-import { breakpoint } from '../sx';
-import { Timeline } from '../components/timeline';
+import { breakpoint, gap } from '@/sx';
+import { Timeline } from '@/components/timeline';
 import * as React from 'react';
-import { Article, Aside } from '../components/resume';
-import { ChipLink } from '../components/chip-link';
+import { Article, Aside } from '@/components/resume';
+import { ChipLink } from '@/components/chip-link';
 import { Smartphone, Email, Computer, PictureAsPdf } from '@mui/icons-material';
 
-const avatarSize = 200;
+const avatarSize = 150;
 
 // Set this at build time to render contact section
 const email = process.env.NEXT_PUBLIC_EMAIL;
@@ -55,17 +54,15 @@ export default function HomePage() {
     >
       <Aside
         sx={[
-          {
-            flexDirection: 'column',
-            justifyContent: 'center',
-            pr: 2,
-          },
           breakpoint('md', {
-            px: 0,
+            minHeight: '100vh',
           }),
         ]}
       >
-        <HexClip size={avatarSize} sx={{ alignSelf: 'center', mt: 4 }}>
+        <HexClip
+          size={avatarSize}
+          sx={{ alignSelf: 'center', mt: gap + gap / 2, mb: gap, mr: gap }}
+        >
           <Image
             className='rounded-full'
             src='/avatar.webp'
@@ -75,68 +72,37 @@ export default function HomePage() {
             priority
           />
         </HexClip>
-      </Aside>
-      <Article
-        sx={{
-          pt: 4,
-          flexDirection: 'column',
-          justifyContent: 'center',
-          ['@media print']: {
-            pt: 8,
-          },
-        }}
-      >
-        <Typography variant='h3' component={'h1'}>
+        <Typography variant='h4' component={'h1'}>
           Michael Barlock
         </Typography>
-        <Typography variant='h2'>Staff Software Engineer</Typography>
-        <Box sx={{ display: 'flex', gap: 2, pt: 2 }}>
-          <ChipLink
-            href={'https://github.com/barlock'}
-            icon={<GitHubIcon />}
-            label={'barlock'}
-          />
-          <ChipLink
-            href={'https://www.linkedin.com/in/barlock/'}
-            icon={<LinkedInIcon />}
-            label={'/in/barlock'}
-          />
-          <ChipLink
-            sx={{
-              ['@media print']: {
-                display: 'none',
-              },
-            }}
-            href={'/resume.pdf'}
-            icon={<PictureAsPdf />}
-            label={'Download PDF'}
-          />
-        </Box>
-      </Article>
-
-      <Aside
-        sx={{
-          ['@media print']: {
-            height: '200vh',
-          },
-        }}
-      >
+        <Typography
+          variant='h2'
+          sx={[{ mb: gap / 2 }, breakpoint('md', { color: 'common.white' })]}
+        >
+          Staff Software Engineer
+        </Typography>
         <Section
           title={'Contact'}
-          rootSx={{
-            display: hasContact ? 'block' : 'none',
-            ['@media print']: {
-              display: 'block',
-            },
-          }}
           sx={{
             gap: 3,
             flexDirection: 'column',
             display: 'flex',
           }}
         >
-          <Box sx={{ position: 'relative' }}>
-            <SectionContact icon={<Computer />} title={'Website'}>
+          <Box
+            sx={{
+              position: 'relative',
+              display: hasContact ? 'block' : 'none',
+              ['@media print']: {
+                display: 'block',
+              },
+            }}
+          >
+            <SectionContact
+              icon={<Computer />}
+              href={'https://barlock.io'}
+              title={'Website'}
+            >
               https://barlock.io
             </SectionContact>
             <Box
@@ -159,96 +125,76 @@ export default function HomePage() {
               />
             </Box>
           </Box>
+
           {hasContact && (
             <>
               <SectionContact icon={<Smartphone />} title={'Phone'}>
                 {phone}
               </SectionContact>
-
               <SectionContact icon={<Email />} title={'Email'}>
                 {email}
               </SectionContact>
             </>
           )}
-        </Section>
 
-        <Section title='About Me'>
-          <IndentSectionText>
-            I’m a design curious, full-stack software engineer. I build
-            high-quality, performant, secure, and maintainable cloud-native
-            applications that delight users across industries.
-            <br />
-            <br />I use continuous delivery to create everything from a cloud
-            platform for AI apps, to blockchain, to managing physical and
-            virtual smart studios for film and television.
-            <br />
-            <br />I love mentoring and teaching others, barbeque, home
-            automation, and ringing chords with my barbershop quartet.
-          </IndentSectionText>
+          <SectionContact
+            icon={<GitHubIcon />}
+            title={'GitHub'}
+            href={'https://github.com/barlock'}
+          >
+            barlock
+          </SectionContact>
+          <SectionContact
+            icon={<LinkedInIcon />}
+            title={'LinkedIn'}
+            href={'https://linkedin.com/in/barlock'}
+          >
+            /in/barlock
+          </SectionContact>
         </Section>
         <Section title={'Education'}>
           <SectionText>University of North Carolina, Chapel Hill</SectionText>
           <IndentSectionText sx={{ mt: 1 }}>
             <Box component={'span'} sx={{ fontWeight: 700 }}>
-              Bachelor of Computer Science
+              B.S. in Computer Science
             </Box>
             <br />
             Minor in Entrepreneurship/Music
           </IndentSectionText>
         </Section>
-
-        <Section title={'Skills'}>
-          <SkillList
-            skills={[
-              'Typescript',
-              'Node.js',
-              'Javascript',
-              'React',
-              'Agile',
-              'DevOps',
-              'MLOps',
-              'Kubernetes',
-              'Docker',
-              'GraphQL',
-              'AWS',
-              'IBM Cloud',
-              'Terraform',
-              'GitHub Actions',
-              'Travis CI',
-              'Kubeflow',
-              'Unreal Engine',
-              'gRPC',
-              'Python',
-              'Solidity',
-              'Java',
-            ]}
-          />
-        </Section>
-
         <Section title={'References'}>
           <SectionText>Available on Request</SectionText>
         </Section>
+        <Box>
+          <ChipLink
+            sx={{
+              mt: gap / 2,
+              ['@media print']: {
+                display: 'none',
+              },
+            }}
+            href={'/resume.pdf'}
+            icon={<PictureAsPdf />}
+            label={'Download PDF'}
+          />
+        </Box>
       </Aside>
       <Article>
+        <SectionTitle>{'About Me'}</SectionTitle>
+        <IndentSectionText>
+          I’m a design-curious, full-stack software engineer with a heavy focus
+          on maximizing impact through effective experience design. I build
+          high-quality, performant, secure, and maintainable cloud-native
+          applications that delight users across industries.
+          <br />
+          <br />I love mentoring and teaching others, barbecue, home automation,
+          and ringing chords with my barbershop quartet.
+        </IndentSectionText>
+
         <SectionTitle color={'text.secondary'}>Experience</SectionTitle>
         <Timeline>
           {resume.map((position, i) => (
-            <Position
-              {...position}
-              key={i}
-              sx={[
-                {
-                  printBreakBefore: 'always',
-                  printBreakInside: 'never',
-                  mb: 1,
-                },
-                i === 3 && {
-                  ['@media print']: {
-                    pt: 12,
-                  },
-                },
-              ]}
-            />
+            <Position {...position} key={i} />
           ))}
         </Timeline>
       </Article>
