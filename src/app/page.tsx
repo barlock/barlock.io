@@ -101,11 +101,11 @@ const HomePage = () => {
               ['Staff Software', 'Engineer'],
               ['DevOps', 'Engineer'],
               ['Full-Stack', 'Engineer'],
+              ['Barbeque', 'Expert'],
               ['UX', 'Engineer'],
               ['Cloud Native', 'Engineer'],
               ['MLOps', 'Engineer'],
               ['Barbershop', 'Harmonizer'],
-              ['Barbeque', 'Expert'],
             ]}
           />
           <Box

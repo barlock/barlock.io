@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box';
 import { SxProps } from '@mui/material/styles';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ReactNode, useEffect, useState } from 'react';
+import { motion, AnimatePresence, MotionProps } from 'framer-motion';
+import { ReactNode, useEffect, useRef, useState } from 'react';
 
 import { spreadable } from '../sx';
 
@@ -11,7 +11,7 @@ interface RotatorProps {
   sx?: SxProps;
 }
 
-const motionProps = {
+const motionProps: MotionProps = {
   initial: { translateX: 100, opacity: 0 },
   animate: { translateX: 0, opacity: 1 },
   exit: { translateX: -100, opacity: 0 },
@@ -20,10 +20,11 @@ const motionProps = {
 
 export const Rotator = ({ items, delay, sx }: RotatorProps) => {
   const [index, setIndex] = useState(0);
+  const hasRotated = useRef(false);
   const item = items[index];
   const prevItem = items[index - 1] ?? items.at(-1);
   const nextItem = items[index + 1] ?? items[0];
-  const subtitleProps: Partial<typeof motionProps> = {
+  const subtitleProps: MotionProps = {
     animate: motionProps.animate,
     transition: motionProps.transition,
   };
@@ -33,11 +34,12 @@ export const Rotator = ({ items, delay, sx }: RotatorProps) => {
   }
 
   if (prevItem[1] !== item[1]) {
-    subtitleProps.initial = motionProps.initial;
+    subtitleProps.initial = hasRotated.current ? motionProps.initial : false;
   }
 
   useEffect(() => {
     const id = setInterval(() => {
+      hasRotated.current = true;
       setIndex((state) => {
         if (state >= items.length - 1) return 0;
         return state + 1;
@@ -52,6 +54,7 @@ export const Rotator = ({ items, delay, sx }: RotatorProps) => {
         <motion.span
           key={`${index}:0`}
           {...motionProps}
+          initial={hasRotated.current ? motionProps.initial : false}
           style={{ position: 'absolute' }}
         >
           {item[0]}
