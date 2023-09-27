@@ -26,6 +26,7 @@ import { Article, Aside } from '@/components/resume';
 import { ChipLink } from '@/components/chip-link';
 import { Smartphone, Email, Computer, PictureAsPdf } from '@mui/icons-material';
 import { Rotator } from '../components/rotator';
+import { useEffect } from 'react';
 
 const avatarSize = 150;
 
@@ -35,6 +36,15 @@ const phone = process.env.NEXT_PUBLIC_PHONE;
 const hasContact = email && phone;
 
 export default function HomePage() {
+  useEffect(() => {
+    console.log(
+      `%cIf you're seeing this, you're clearly one of my people. ` +
+        `I wanted to build my resume in React to show off what my coding looks like. While you're here, checkout the performance stats and Lighthouse scores 😉.` +
+        `\n\nYou can checkout the source for this website on GitHub:` +
+        `\nhttps://github.com/barlock/barlock.io`,
+      'font-family: sans-serif; font-size: 18px',
+    );
+  });
   return (
     <Grid
       container
