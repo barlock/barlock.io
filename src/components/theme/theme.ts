@@ -1,7 +1,7 @@
 import type {} from '@mui/lab/themeAugmentation';
 
-import { Quicksand, JetBrains_Mono } from 'next/font/google';
 import { createTheme } from '@mui/material/styles';
+import { Quicksand, JetBrains_Mono } from 'next/font/google';
 import { CSSProperties } from 'react';
 
 declare module '@mui/material/styles' {

@@ -28,7 +28,7 @@ export const spreadable = (
 export const gap = 4;
 
 export const breakpoint =
-  (breakpoint: Breakpoint, styles: SxProps) =>
+  (breakpointUp: Breakpoint, styles: SxProps) =>
   ({ breakpoints }: Theme) => ({
-    [breakpoints.up(breakpoint)]: styles,
+    [breakpoints.up(breakpointUp)]: styles,
   });

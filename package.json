@@ -10,16 +10,15 @@
     "fmt": "pre-commit run --all-files"
   },
   "dependencies": {
+    "@emotion/cache": "11.11.0",
     "@emotion/react": "11.11.1",
     "@emotion/styled": "11.11.0",
     "@mui/icons-material": "5.14.9",
-    "@mui/lab": "^5.0.0-alpha.145",
+    "@mui/lab": "5.0.0-alpha.145",
     "@mui/material": "5.14.10",
     "@types/node": "20.6.3",
     "@types/react": "18.2.22",
     "@types/react-dom": "18.2.7",
-    "eslint": "8.49.0",
-    "eslint-config-next": "13.5.2",
     "framer-motion": "10.16.4",
     "next": "13.5.2",
     "react": "18.2.0",
@@ -28,6 +27,22 @@
     "typescript": "5.2.2"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "6.7.3",
+    "@typescript-eslint/parser": "6.7.3",
+    "eslint": "8.49.0",
+    "eslint-config-airbnb": "19.0.4",
+    "eslint-config-airbnb-typescript": "17.1.0",
+    "eslint-config-next": "13.5.2",
+    "eslint-config-prettier": "9.0.0",
+    "eslint-plugin-eslint-comments": "3.2.0",
+    "eslint-plugin-import": "2.28.1",
+    "eslint-plugin-jsx-a11y": "6.7.1",
+    "eslint-plugin-mui-path-imports": "0.0.15",
+    "eslint-plugin-prefer-arrow": "1.2.3",
+    "eslint-plugin-react": "7.33.2",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "eslint-plugin-unicorn": "48.0.1",
+    "eslint-plugin-unused-imports": "3.0.0",
     "prettier": "3.0.3"
   }
 }

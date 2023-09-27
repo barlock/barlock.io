@@ -1,5 +1,6 @@
-import { PositionData } from '@/components/position';
 import Link from '@mui/material/Link';
+
+import { PositionData } from '@/components/position';
 
 export const resume: PositionData[] = [
   {
@@ -11,9 +12,7 @@ export const resume: PositionData[] = [
       <>
         Developed from scratch, an{' '}
         <Link
-          href={
-            'https://reelchicago.com/article/showrunner-wins-product-of-the-year-at-nab/'
-          }
+          href="https://reelchicago.com/article/showrunner-wins-product-of-the-year-at-nab/"
         >
           award-winning
         </Link>{' '}
@@ -43,14 +42,12 @@ export const resume: PositionData[] = [
       <>
         Open source improvements to Slack’s own{' '}
         <Link
-          href={
-            'https://github.com/slackapi/bolt-js/pulls?q=is%3Apr+sort%3Aupdated-desc+is%3Aclosed+author%3Abarlock'
-          }
+          href="https://github.com/slackapi/bolt-js/pulls?q=is%3Apr+sort%3Aupdated-desc+is%3Aclosed+author%3Abarlock"
         >
           developer tools
         </Link>{' '}
         and{' '}
-        <Link href={'https://github.com/IBM/slack-wrench'}>bot tooling</Link> to
+        <Link href="https://github.com/IBM/slack-wrench">bot tooling</Link> to
         simplify infusing AI into Slack bots
       </>,
       'Evangelized “inner source” and built a company-wide Python K8s operator framework',
@@ -75,14 +72,14 @@ export const resume: PositionData[] = [
     details: [
       <>
         Built tamper-resistant, distributed, static websites (
-        <Link href={'https://github.com/ConsenSys/web3studio-soy'}>
+        <Link href="https://github.com/ConsenSys/web3studio-soy">
           ConsenSys/web3studio-soy
         </Link>
         )
       </>,
       <>
         Created the{' '}
-        <Link href={'https://github.com/ConsenSys/web3studio-bootleg'}>
+        <Link href="https://github.com/ConsenSys/web3studio-bootleg">
           first music NFT
         </Link>{' '}
         that pays back royalties to artists. Custom dApp, ERC712 contract

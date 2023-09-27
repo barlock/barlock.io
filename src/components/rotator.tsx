@@ -1,7 +1,8 @@
-import { ReactNode, useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
-import { motion, AnimatePresence } from 'framer-motion';
 import { SxProps } from '@mui/material/styles';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ReactNode, useEffect, useState } from 'react';
+
 import { spreadable } from '../sx';
 
 interface RotatorProps {

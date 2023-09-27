@@ -1,14 +1,25 @@
 'use client';
 
-import Typography from '@mui/material/Typography';
-import { Position } from '@/components/position';
+import { Smartphone, Email, Computer, PictureAsPdf } from '@mui/icons-material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import Image from 'next/image';
-import Box from '@mui/material/Box';
-
 import { Container } from '@mui/material';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Grid from '@mui/material/Unstable_Grid2';
+import Image from 'next/image';
+import * as React from 'react';
+import { useEffect } from 'react';
+import QRCode from 'react-qr-code';
+
+import { Rotator } from '../components/rotator';
+
 import { resume } from './resume';
+
+import { ChipLink } from '@/components/chip-link';
+import { HexClip } from '@/components/hex-clip';
+import { Position } from '@/components/position';
+import { Article, Aside } from '@/components/resume';
 import {
   IndentSectionText,
   Section,
@@ -16,17 +27,8 @@ import {
   SectionText,
   SectionTitle,
 } from '@/components/section-title';
-import { HexClip } from '@/components/hex-clip';
-import Grid from '@mui/material/Unstable_Grid2';
-import QRCode from 'react-qr-code';
-import { breakpoint, gap } from '@/sx';
 import { Timeline } from '@/components/timeline';
-import * as React from 'react';
-import { Article, Aside } from '@/components/resume';
-import { ChipLink } from '@/components/chip-link';
-import { Smartphone, Email, Computer, PictureAsPdf } from '@mui/icons-material';
-import { Rotator } from '../components/rotator';
-import { useEffect } from 'react';
+import { breakpoint, gap } from '@/sx';
 
 const avatarSize = 150;
 
@@ -35,11 +37,13 @@ const email = process.env.NEXT_PUBLIC_EMAIL;
 const phone = process.env.NEXT_PUBLIC_PHONE;
 const hasContact = email && phone;
 
-export default function HomePage() {
+const HomePage = () => {
   useEffect(() => {
+    // eslint-disable-next-line no-console
     console.log(
       `%cIf you're seeing this, you're clearly one of my people. ` +
-        `I wanted to build my resume in React to show off what my coding looks like. While you're here, checkout the performance stats and Lighthouse scores 😉.` +
+        `I wanted to build my resume in React to show off what my coding looks like. ` +
+        `While you're here, checkout the performance stats and Lighthouse scores 😉.` +
         `\n\nYou can checkout the source for this website on GitHub:` +
         `\nhttps://github.com/barlock/barlock.io`,
       'font-family: sans-serif; font-size: 18px',
@@ -83,7 +87,7 @@ export default function HomePage() {
             priority
           />
         </HexClip>
-        <Typography variant='h4' component={'h1'}>
+        <Typography variant='h4' component='h1'>
           Michael Barlock
         </Typography>
         <Typography
@@ -91,7 +95,7 @@ export default function HomePage() {
           sx={[{ mb: gap / 2 }, breakpoint('md', { color: 'common.white' })]}
         >
           <Rotator
-            sx={{ ['@media print']: { display: 'none' } }}
+            sx={{ '@media print': { display: 'none' } }}
             delay={5000}
             items={[
               ['Staff Software', 'Engineer'],
@@ -105,8 +109,8 @@ export default function HomePage() {
             ]}
           />
           <Box
-            sx={{ display: 'none', ['@media print']: { display: 'inline' } }}
-            component={'span'}
+            sx={{ display: 'none', '@media print': { display: 'inline' } }}
+            component='span'
           >
             Staff Software
             <br />
@@ -114,7 +118,7 @@ export default function HomePage() {
           </Box>
         </Typography>
         <Section
-          title={'Contact'}
+          title='Contact'
           sx={{
             gap: 3,
             flexDirection: 'column',
@@ -125,15 +129,15 @@ export default function HomePage() {
             sx={{
               position: 'relative',
               display: hasContact ? 'block' : 'none',
-              ['@media print']: {
+              '@media print': {
                 display: 'block',
               },
             }}
           >
             <SectionContact
               icon={<Computer />}
-              href={'https://barlock.io'}
-              title={'Website'}
+              href='https://barlock.io'
+              title='Website'
             >
               https://barlock.io
             </SectionContact>
@@ -148,22 +152,22 @@ export default function HomePage() {
             >
               <QRCode
                 size={256}
-                level={'L'}
-                bgColor={'transparent'}
-                fgColor={'currentColor'}
+                level='L'
+                bgColor='transparent'
+                fgColor='currentColor'
                 style={{ height: 'auto', maxWidth: '100%', width: '100%' }}
-                viewBox={`0 0 256 256`}
-                value={'https://barlock.io'}
+                viewBox='0 0 256 256'
+                value='https://barlock.io'
               />
             </Box>
           </Box>
 
           {hasContact && (
             <>
-              <SectionContact icon={<Smartphone />} title={'Phone'}>
+              <SectionContact icon={<Smartphone />} title='Phone'>
                 {phone}
               </SectionContact>
-              <SectionContact icon={<Email />} title={'Email'}>
+              <SectionContact icon={<Email />} title='Email'>
                 {email}
               </SectionContact>
             </>
@@ -171,48 +175,48 @@ export default function HomePage() {
 
           <SectionContact
             icon={<GitHubIcon />}
-            title={'GitHub'}
-            href={'https://github.com/barlock'}
+            title='GitHub'
+            href='https://github.com/barlock'
           >
             barlock
           </SectionContact>
           <SectionContact
             icon={<LinkedInIcon />}
-            title={'LinkedIn'}
-            href={'https://linkedin.com/in/barlock'}
+            title='LinkedIn'
+            href='https://linkedin.com/in/barlock'
           >
             /in/barlock
           </SectionContact>
         </Section>
-        <Section title={'Education'}>
+        <Section title='Education'>
           <SectionText>University of North Carolina, Chapel Hill</SectionText>
           <IndentSectionText sx={{ mt: 1 }}>
-            <Box component={'span'} sx={{ fontWeight: 700 }}>
+            <Box component='span' sx={{ fontWeight: 700 }}>
               B.S. in Computer Science
             </Box>
             <br />
             Minor in Entrepreneurship/Music
           </IndentSectionText>
         </Section>
-        <Section title={'References'}>
+        <Section title='References'>
           <SectionText>Available on Request</SectionText>
         </Section>
         <Box>
           <ChipLink
             sx={{
               mt: gap / 2,
-              ['@media print']: {
+              '@media print': {
                 display: 'none',
               },
             }}
-            href={'/resume.pdf'}
+            href='/resume.pdf'
             icon={<PictureAsPdf />}
-            label={'Download PDF'}
+            label='Download PDF'
           />
         </Box>
       </Aside>
       <Article>
-        <SectionTitle>{'About Me'}</SectionTitle>
+        <SectionTitle>About Me</SectionTitle>
         <IndentSectionText>
           I’m a design-curious, full-stack software engineer with a heavy focus
           on maximizing impact through effective experience design. I build
@@ -223,13 +227,16 @@ export default function HomePage() {
           and ringing chords with my barbershop quartet.
         </IndentSectionText>
 
-        <SectionTitle color={'text.secondary'}>Experience</SectionTitle>
+        <SectionTitle color='text.secondary'>Experience</SectionTitle>
         <Timeline>
-          {resume.map((position, i) => (
-            <Position {...position} key={i} />
+          {resume.map((position, index) => (
+            // eslint-disable-next-line react/no-array-index-key
+            <Position {...position} key={index} />
           ))}
         </Timeline>
       </Article>
     </Grid>
   );
-}
+};
+
+export default HomePage;
