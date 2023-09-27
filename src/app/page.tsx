@@ -25,6 +25,7 @@ import * as React from 'react';
 import { Article, Aside } from '@/components/resume';
 import { ChipLink } from '@/components/chip-link';
 import { Smartphone, Email, Computer, PictureAsPdf } from '@mui/icons-material';
+import { Rotator } from '../components/rotator';
 
 const avatarSize = 150;
 
@@ -79,7 +80,28 @@ export default function HomePage() {
           variant='h2'
           sx={[{ mb: gap / 2 }, breakpoint('md', { color: 'common.white' })]}
         >
-          Staff Software Engineer
+          <Rotator
+            sx={{ ['@media print']: { display: 'none' } }}
+            delay={5000}
+            items={[
+              ['Staff Software', 'Engineer'],
+              ['DevOps', 'Engineer'],
+              ['Full-Stack', 'Engineer'],
+              ['UX', 'Engineer'],
+              ['Cloud Native', 'Engineer'],
+              ['MLOps', 'Engineer'],
+              ['Barbershop', 'Harmonizer'],
+              ['Barbeque', 'Expert'],
+            ]}
+          />
+          <Box
+            sx={{ display: 'none', ['@media print']: { display: 'inline' } }}
+            component={'span'}
+          >
+            Staff Software
+            <br />
+            Engineer
+          </Box>
         </Typography>
         <Section
           title={'Contact'}
