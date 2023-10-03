@@ -11,9 +11,7 @@ export const resume: PositionData[] = [
     details: [
       <>
         Developed from scratch, an{' '}
-        <Link
-          href="https://reelchicago.com/article/showrunner-wins-product-of-the-year-at-nab/"
-        >
+        <Link href='https://reelchicago.com/article/showrunner-wins-product-of-the-year-at-nab/'>
           award-winning
         </Link>{' '}
         filmmaking platform that connects physical sets with Unreal Engine with
@@ -36,19 +34,16 @@ export const resume: PositionData[] = [
     title: 'Architect / Senior Software Engineer',
     logoSrc: '/ibm.webp',
     company: 'IBM | ConveyorAI • Watson AIOps • Slack/IBM Partnership',
-    time: 'Jul 2019 - Jun 2022',
+    time: 'Jul 2019 - May 2022',
     details: [
       'Architected enterprise-scale MLOps platform, enabling no/low-code AI app development',
       <>
         Open source improvements to Slack’s own{' '}
-        <Link
-          href="https://github.com/slackapi/bolt-js/pulls?q=is%3Apr+sort%3Aupdated-desc+is%3Aclosed+author%3Abarlock"
-        >
+        <Link href='https://github.com/slackapi/bolt-js/pulls?q=is%3Apr+sort%3Aupdated-desc+is%3Aclosed+author%3Abarlock'>
           developer tools
         </Link>{' '}
-        and{' '}
-        <Link href="https://github.com/IBM/slack-wrench">bot tooling</Link> to
-        simplify infusing AI into Slack bots
+        and <Link href='https://github.com/IBM/slack-wrench'>bot tooling</Link>{' '}
+        to simplify infusing AI into Slack bots
       </>,
       'Evangelized “inner source” and built a company-wide Python K8s operator framework',
       'Designed and implemented a SOC 2 compliant AWS deployment',
@@ -72,14 +67,14 @@ export const resume: PositionData[] = [
     details: [
       <>
         Built tamper-resistant, distributed, static websites (
-        <Link href="https://github.com/ConsenSys/web3studio-soy">
+        <Link href='https://github.com/ConsenSys/web3studio-soy'>
           ConsenSys/web3studio-soy
         </Link>
         )
       </>,
       <>
         Created the{' '}
-        <Link href="https://github.com/ConsenSys/web3studio-bootleg">
+        <Link href='https://github.com/ConsenSys/web3studio-bootleg'>
           first music NFT
         </Link>{' '}
         that pays back royalties to artists. Custom dApp, ERC712 contract
