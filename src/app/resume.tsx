@@ -38,7 +38,7 @@ export const resume: PositionData[] = [
     details: [
       'Architected enterprise-scale MLOps platform, enabling no/low-code AI app development',
       <>
-        Open source improvements to Slack’s own{' '}
+        Open source improvements to Slack&apos;s own{' '}
         <Link href='https://github.com/slackapi/bolt-js/pulls?q=is%3Apr+sort%3Aupdated-desc+is%3Aclosed+author%3Abarlock'>
           developer tools
         </Link>{' '}

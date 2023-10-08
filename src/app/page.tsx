@@ -218,9 +218,9 @@ const HomePage = () => {
       <Article>
         <SectionTitle>About Me</SectionTitle>
         <IndentSectionText>
-          I’m a design-curious, full-stack software engineer with a heavy focus
-          on maximizing impact through effective experience design. I build
-          high-quality, performant, secure, and maintainable cloud-native
+          I&apos;m a design-curious, full-stack software engineer with a heavy
+          focus on maximizing impact through effective experience design. I
+          build high-quality, performant, secure, and maintainable cloud-native
           applications that delight users across industries.
           <br />
           <br />I love mentoring and teaching others, barbecue, home automation,
