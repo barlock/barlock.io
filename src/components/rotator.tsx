@@ -52,7 +52,7 @@ export const Rotator = ({ items, delay, sx }: RotatorProps) => {
     <Box sx={[{ position: 'relative' }, ...spreadable(sx)]}>
       <AnimatePresence>
         <motion.span
-          key={`${index}:0`}
+          key={item[0] as string}
           {...motionProps}
           initial={hasRotated.current ? motionProps.initial : false}
           style={{ position: 'absolute' }}
@@ -63,7 +63,7 @@ export const Rotator = ({ items, delay, sx }: RotatorProps) => {
       <br />
       <AnimatePresence>
         <motion.span
-          key={`${index}:1`}
+          key={item[1] as string}
           {...subtitleProps}
           style={{ position: 'absolute' }}
         >

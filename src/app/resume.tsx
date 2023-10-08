@@ -89,7 +89,7 @@ export const resume: PositionData[] = [
     company: 'LifeOmic | JupiterOne',
     logoSrc: '/lifeomic.jpeg',
     details: [
-      'Built HIPPA-compliant continuous CI/CD pipeline to AWS using Terraform and Docker',
+      'Built HIPAA-compliant continuous CI/CD pipeline to AWS using Terraform and Docker',
       'Worked cross-company and discipline to create a shared design system',
       'Led Agile frontend team for JupiterOne',
     ],
