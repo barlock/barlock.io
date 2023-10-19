@@ -29,9 +29,8 @@ export const Rotator = ({ items, delay, sx }: RotatorProps) => {
     transition: motionProps.transition,
   };
 
-  if (nextItem[1] !== item[1]) {
-    subtitleProps.exit = motionProps.exit;
-  }
+  subtitleProps.exit =
+    nextItem[1] === item[1] ? { opacity: 1 } : motionProps.exit;
 
   if (prevItem[1] !== item[1]) {
     subtitleProps.initial = hasRotated.current ? motionProps.initial : false;
