@@ -4,6 +4,18 @@ import { PositionData } from '@/components/position';
 
 export const resume: PositionData[] = [
   {
+    title: 'Senior Software Engineer',
+    time: 'Dec 2023 - Present',
+    company: 'Dropbox',
+    logoSrc: '/dropbox.svg',
+    details: [
+      'Improved build times saving 300k/year in developer time',
+      'Orchestrated complex cross-organization data migration',
+      'Lead delivery for new features on Replay',
+    ],
+    stack: ['Typescript', 'Python', 'React', 'Bazel'],
+  },
+  {
     title: 'Staff Software Engineer',
     time: 'May 2022 - Sep 2023',
     company: 'SHOWRUNNER',
@@ -36,7 +48,7 @@ export const resume: PositionData[] = [
     company: 'IBM | ConveyorAI • Watson AIOps • Slack/IBM Partnership',
     time: 'Jul 2019 - May 2022',
     details: [
-      'Architected enterprise-scale MLOps platform, enabling no/low-code AI app development',
+      'Architected enterprise-scale MLOps platform, enabling low-code AI app development',
       <>
         Open source improvements to Slack&apos;s own{' '}
         <Link href='https://github.com/slackapi/bolt-js/pulls?q=is%3Apr+sort%3Aupdated-desc+is%3Aclosed+author%3Abarlock'>
@@ -47,7 +59,7 @@ export const resume: PositionData[] = [
       </>,
       'Evangelized “inner source” and built a company-wide Python K8s operator framework',
       'Designed and implemented a SOC 2 compliant AWS deployment',
-      'Led delivery, engineering, DevOps, and certification efforts for 30+ person product team',
+      'Led engineering, DevOps, and certification efforts for 30+ person product team',
     ],
     stack: [
       'Typescript',
