@@ -5,15 +5,24 @@ import { PositionData } from '@/components/position';
 export const resume: PositionData[] = [
   {
     title: 'Senior Software Engineer',
-    time: 'Dec 2023 - Present',
-    company: 'Dropbox',
+    time: 'Dec 2023 - Oct 2024',
+    company: 'Dropbox | Replay',
     logoSrc: '/dropbox.svg',
     details: [
-      'Improved build times saving 300k/year in developer time',
-      'Orchestrated complex cross-organization data migration',
-      'Lead delivery for new features on Replay',
+      'Lead design and delivery of features and optimizations for Replay, a video review platform, with scope spanning multiple teams and organizations',
+      'Optimized build and deployment times saving $300k/year in developer productivity and reduced time-to-deploy to under 5 min (from over 30).',
+      'Introduced an improved testing culture with Playwright, freeing developers from manual QA, and improved unit test coverage by 20% with visual regression tests',
+      'Improved page load times by 3s by implementing caching, backend optimization and tracing, and improved loading waterfalls',
     ],
-    stack: ['Typescript', 'Python', 'React', 'Bazel'],
+    stack: [
+      'Typescript',
+      'Python',
+      'React',
+      'Playwright',
+      'AWS',
+      'gRPC',
+      'Bazel',
+    ],
   },
   {
     title: 'Staff Software Engineer',
