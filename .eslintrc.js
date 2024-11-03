@@ -1,10 +1,12 @@
 module.exports = {
   parserOptions: {
-    project: 'tsconfig.json',
+    projectService: {
+      defaultProject: 'tsconfig.json',
+    }
   },
   extends: [
     'airbnb',
-    'airbnb-typescript',
+    'plugin:@typescript-eslint/recommended',
     'plugin:eslint-comments/recommended',
     'plugin:unicorn/recommended',
     'prettier',
@@ -40,6 +42,7 @@ module.exports = {
         },
       },
     ],
+    'import/extensions': 'off',
 
     'prefer-arrow/prefer-arrow-functions': [
       'error',
@@ -61,6 +64,7 @@ module.exports = {
       },
     ],
     'react/jsx-props-no-spreading': 'off',
+    "react/jsx-filename-extension": ['error', { "extensions": [".tsx"] }],
     'react/require-default-props': 'off',
   },
 };

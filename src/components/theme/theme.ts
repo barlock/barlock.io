@@ -1,6 +1,7 @@
 import type {} from '@mui/lab/themeAugmentation';
 
 import { createTheme } from '@mui/material/styles';
+// eslint-disable-next-line camelcase
 import { Quicksand, JetBrains_Mono } from 'next/font/google';
 import { CSSProperties } from 'react';
 

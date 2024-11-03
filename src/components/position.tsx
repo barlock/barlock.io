@@ -22,7 +22,7 @@ export interface PositionData {
   details?: ReactNode[];
 }
 
-interface PositionProps extends PositionData {}
+type PositionProps = PositionData
 
 export const Position = ({
   title,
