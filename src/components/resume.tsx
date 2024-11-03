@@ -14,7 +14,8 @@ export const Aside = ({ sx, children }: LayoutProps) => (
   <Grid
     size={{
       xs: 12,
-      md: 4
+      md: 5,
+      lg: 4,
     }}
     component='aside'
     sx={[
@@ -50,7 +51,8 @@ export const Article = ({ sx, children }: LayoutProps) => (
     ]}
     size={{
       xs: 12,
-      md: 8
+      md: 7,
+      lg: 8,
     }}
     component='article'
   >

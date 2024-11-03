@@ -12,7 +12,6 @@ import * as React from 'react';
 import { useEffect } from 'react';
 import QRCode from 'react-qr-code';
 
-import { Rotator } from '../components/rotator';
 
 import { resume } from './resume';
 
@@ -20,6 +19,7 @@ import { ChipLink } from '@/components/chip-link';
 import { HexClip } from '@/components/hex-clip';
 import { Position } from '@/components/position';
 import { Article, Aside } from '@/components/resume';
+import { Rotator } from '@/components/rotator';
 import {
   IndentSectionText,
   Section,
@@ -108,14 +108,14 @@ const HomePage = () => {
               ['Barbershop', 'Harmonizer'],
             ]}
           />
-          <Box
+           <Box
             sx={{ display: 'none', '@media print': { display: 'inline' } }}
             component='span'
-          >
+           >
             Staff Software
             <br />
             Engineer
-          </Box>
+           </Box>
         </Typography>
         <Section
           title='Contact'
@@ -209,7 +209,7 @@ const HomePage = () => {
                 display: 'none',
               },
             }}
-            href='/resume.pdf'
+            href='/Michael_Barlock-Resume.docx'
             icon={<PictureAsPdf />}
             label='Download PDF'
           />

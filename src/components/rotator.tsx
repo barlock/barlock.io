@@ -69,7 +69,7 @@ export const Rotator = ({ items, delay, sx }: RotatorProps) => {
           {item[1]}
         </motion.span>
       </AnimatePresence>
-      <Box sx={{ opacity: 0 }}>{items[0][0]}</Box>
+       <Box sx={{ opacity: 0 }}>{items[0][0]}</Box>
     </Box>
   );
 };
